@@ -1,7 +1,7 @@
 # A1 - Piraten Karpen
 
-  * Author: < You name here >
-  * Email: < Your email here >
+  * Author: Desmond Rasie
+  * Email: desmond.rasie@live.ca
 
 ## Build and Execution
 
