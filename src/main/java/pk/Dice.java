@@ -19,4 +19,12 @@ public class Dice {
         }
         return rollOutcomes;
     }
+
+//    public static Faces[] rollAllDice(int numOfDice){
+//        Faces[] rollOutcomes = new Faces[numOfDice];
+//        for (int i = 0; i < numOfDice; i++) {
+//            rollOutcomes[i] = roll();
+//        }
+//        return rollOutcomes;
+//    }
 }
