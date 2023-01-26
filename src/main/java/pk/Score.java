@@ -1,9 +1,10 @@
 package pk;
 import java.util.Arrays;
+import java.util.ArrayList;
 
 public class Score {
 
-    public static int roundScore(Faces[] rollOutcomes) {
+    public static int roundScore(ArrayList<Faces> rollOutcomes) {
         int roundTotal = 0;
         int skullCount = 0;
         for (Faces i: rollOutcomes){
@@ -20,5 +21,4 @@ public class Score {
         }
         return roundTotal;
     }
-
 }

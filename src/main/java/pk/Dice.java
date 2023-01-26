@@ -1,5 +1,6 @@
 package pk;
 import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Dice {
@@ -12,10 +13,11 @@ public class Dice {
         return Faces.values()[bag.nextInt(howManyFaces)];
     }
 
-    public static Faces[] rollEight() {
-        Faces[] rollOutcomes = new Faces[8];
+    public static ArrayList<Faces> rollEight() {
+        ArrayList<Faces> rollOutcomes = new ArrayList<Faces>();
         for (int i = 0; i < 8; i++){
-            rollOutcomes[i] = roll();
+            rollOutcomes.add(roll());
+            System.out.println(rollOutcomes);
         }
         return rollOutcomes;
     }
