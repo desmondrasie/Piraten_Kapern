@@ -22,4 +22,6 @@
 - Answered the questions in Step #2, included in the report
 
 ### 1/27/2023:
+- Began Step #3 by creating a Player class to better organize player wins and points; more OOP focused 
+- Implemented log4j with instructions to turn "OFF" or "TRACE"
 
