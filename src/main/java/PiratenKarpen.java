@@ -29,7 +29,6 @@ public class PiratenKarpen {
         System.out.println("Player 1 | Win% = "+Math.round(p1WinPercent*10000)/100.0+"%");
         System.out.println("Player 2 | Win% = "+Math.round(p2WinPercent*10000)/100.0+"%");
 
-
     }
 
 }

@@ -14,16 +14,16 @@ public class Turn {
 
         while(flag){
 
-            System.out.println("Player Rolls: ");
+            //System.out.println("Player Rolls: ");
             ArrayList<Faces> rollOutcomes = new ArrayList<Faces>();
 
             rollOutcomes = Dice.rollAll(numReroll,skullCount,remainingDice);
-            System.out.println(rollOutcomes);
+            //System.out.println(rollOutcomes);
 
             int roundScore = Score.roundScore(rollOutcomes);
 
             if(roundScore == -1){
-                System.out.println("You Rolled 3 Skulls! Your Turn Ends With 0 pts. ");
+                //System.out.println("You Rolled 3 Skulls! Your Turn Ends With 0 pts. ");
                 return 0;
             }
             else{
@@ -38,7 +38,7 @@ public class Turn {
             int toss = coinToss.nextInt(2);
             if (toss == 0){
                 flag = false;
-                System.out.println("Player is done with their turn!");
+                //System.out.println("Player is done with their turn!");
 
                 return totalPoints;
             }
@@ -71,9 +71,9 @@ public class Turn {
             //System.out.println("Remove Rerolls: " + rollOutcomes);
 
 
-            System.out.println("\n");
-            System.out.println("----- END OF ROUND -----");
-            System.out.println("\n");
+//            System.out.println("\n");
+//            System.out.println("----- END OF ROUND -----");
+//            System.out.println("\n");
 
         }
 
