@@ -27,7 +27,8 @@ public class PiratenKarpen {
 
             }
         }
-        logger.info("Logger Test Working");
+
+        logger.trace("Logger Test Working");
 
         p1WinPercent = player1.numOfWins/42.0;
         p2WinPercent = 1-p1WinPercent;
@@ -36,5 +37,4 @@ public class PiratenKarpen {
         System.out.println("Player 2 | Win% = "+Math.round(p2WinPercent*10000)/100.0+"%");
 
     }
-
 }
