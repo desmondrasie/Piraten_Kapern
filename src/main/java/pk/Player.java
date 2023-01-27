@@ -2,7 +2,6 @@ package pk;
 
 public class Player {
 
-    public static int points() {
-
-    }
+    public int numOfWins = 0;
+    public int gamePoints = 0;
 }
