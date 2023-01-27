@@ -32,8 +32,8 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | x   | F01 | Roll a dice | D | 01/01/23 | 01/25/23 | 
 | x   | F02 | Roll eight dices  | D | 01/25/23 | 01/26/23 |
 | x   | F03 | Return score for a single round  | D | 01/26/23 | 01/26/23 |
-| x   | F04 | Player Decision to ReRoll | S | 01/26/23 |
-| x   | F05 | Return score for a single turn | B (F04) |
-| x   | F06 | Return outcome for a single game | B(F05) |
+| x   | F04 | Player Decision to ReRoll | D | 01/26/23 | 01/26/23 |
+| x   | F05 | Return score for a single turn | D | 01/26/23 | 01/26/23 |
+| x   | F06 | Return outcome for a single game | S | 01/26/23
 | x   | F07 | Return final Win % per Player | B (F06) | 
 
