@@ -1,8 +1,10 @@
 package pk;
 import java.util.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class Turn {
-
+    private static final Logger logger = LogManager.getLogger(Turn.class);
     public static int score(){
 
         int score = 0;
@@ -38,7 +40,7 @@ public class Turn {
             int toss = coinToss.nextInt(2);
             if (toss == 0){
                 flag = false;
-                //System.out.println("Player is done with their turn!");
+                //logger.trace("Player is done with their turn!");
 
                 return totalPoints;
             }
