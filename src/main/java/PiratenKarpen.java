@@ -14,7 +14,7 @@ import org.apache.logging.log4j.LogManager;
 public class PiratenKarpen {
 
     public static void main(String[] args) {
-
+        Player player1 = new Player
         int p1wins = 0;
         double p1WinPercent;
         double p2WinPercent;
