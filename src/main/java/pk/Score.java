@@ -15,10 +15,21 @@ public class Score {
             else if(i == Faces.SKULL){
                 skullCount++;
                 if (skullCount == 3){
-                    return 0;
+                    return -1;
                 }
             }
         }
         return roundTotal;
     }
+
+    public static int numOfSkulls(ArrayList<Faces> rollOutcomes) {
+        int count = 0;
+        for (Faces i: rollOutcomes){
+            if(i == Faces.SKULL){
+                count++;
+            }
+        }
+        return count;
+    }
+
 }

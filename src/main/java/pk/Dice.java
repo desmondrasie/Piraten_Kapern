@@ -2,6 +2,7 @@ package pk;
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Collection;
 
 public class Dice {
 
@@ -17,16 +18,19 @@ public class Dice {
         ArrayList<Faces> rollOutcomes = new ArrayList<Faces>();
         for (int i = 0; i < 8; i++){
             rollOutcomes.add(roll());
-            System.out.println(rollOutcomes);
         }
         return rollOutcomes;
     }
 
-//    public static Faces[] rollAllDice(int numOfDice){
-//        Faces[] rollOutcomes = new Faces[numOfDice];
-//        for (int i = 0; i < numOfDice; i++) {
-//            rollOutcomes[i] = roll();
-//        }
-//        return rollOutcomes;
-//    }
+    public static ArrayList<Faces> rollAll(int numOfDice, int skullCount,ArrayList<Faces> remainingDice){
+        ArrayList<Faces> rollOutcomes = new ArrayList<Faces>();
+        for (int i = 0; i < numOfDice; i++) {
+            rollOutcomes.add(roll());
+        }
+        for (int j = 0; j < skullCount; j++){
+            rollOutcomes.add(Faces.SKULL);
+        }
+        rollOutcomes.addAll(remainingDice);
+        return rollOutcomes;
+    }
 }
