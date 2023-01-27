@@ -25,7 +25,9 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
  * Status: 
    * Pending (P), Started (S), Blocked (B), Done (D)
  * Definition of Done (DoD):
-   * < Your DoD goes here >
+   * The feature must work as intended, while also bringing value to the user.
+   * If the feature can be integrated into the existing project and work alongside existing features without causing conflicts, this feature is considered Done.
+   
 
 ### Backlog 
 
