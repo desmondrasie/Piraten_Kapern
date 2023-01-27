@@ -32,5 +32,6 @@ public class Dice {
         }
         rollOutcomes.addAll(remainingDice);
         return rollOutcomes;
+        
     }
 }
