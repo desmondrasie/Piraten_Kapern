@@ -16,7 +16,7 @@ public class Game {
                 return 1;
             }
             player2.gamePoints = player2.gamePoints + Turn.score();
-            //System.out.println("Player 2 Points: "+p2Points);
+            logger.trace("Player 2 Points: "+player2.gamePoints);
             if (player2.gamePoints >= 6000){
                 logger.trace("Player 2 Wins!");
                 return 0;

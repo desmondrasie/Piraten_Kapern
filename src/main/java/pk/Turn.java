@@ -8,19 +8,19 @@ public class Turn {
     private static final Logger logger = LogManager.getLogger(Turn.class);
     public static int score(){
 
-        int score = 0;
-        boolean flag = true;
+
         int numReroll = 8;
         int skullCount = 0;
         int totalPoints = 0;
         ArrayList<Faces> remainingDice = new ArrayList<Faces>();
 
-        while(flag){
+        while(true){
 
             //System.out.println("Player Rolls: ");
             ArrayList<Faces> rollOutcomes = new ArrayList<Faces>();
 
             rollOutcomes = Dice.rollAll(numReroll,skullCount,remainingDice);
+            Collections.sort(rollOutcomes);
             logger.trace(rollOutcomes);
 
             int roundScore = Score.roundScore(rollOutcomes);
@@ -40,42 +40,54 @@ public class Turn {
             Random coinToss = new Random();
             int toss = coinToss.nextInt(2);
             if (toss == 0){
-                flag = false;
                 logger.trace("Player is done with their turn!");
-
                 return totalPoints;
             }
             else{
-                flag = true;
                 logger.trace("Player wants to roll again!");
             }
 
-//            int[] quantityOutcome = Score.quantityOutcome(rollOutcomes);
-//
-//            int max = Collections.max(quantityOutcome);
+            //remainingDice = Strategies.maxCombos(rollOutcomes);
+            remainingDice = Strategies.random(rollOutcomes);
+            logger.trace("Remaining Dice: "+remainingDice);
+            skullCount = Score.numOfSkulls(rollOutcomes);
+            numReroll = 8 - remainingDice.size() - skullCount;
+
+
+
+
+            if (numReroll < 2){
+                logger.trace("Player is done with their turn! *No more rerolls*! ");
+                return totalPoints;
+            }
+
+
+
+
 
             // Determine how many dice player wants to re-roll
-            Random diceReroll = new Random();
-            numReroll = diceReroll.nextInt(2, 8-Score.numOfSkulls(rollOutcomes));
+//            Random diceReroll = new Random();
+//            numReroll = diceReroll.nextInt(2, 8-Score.numOfSkulls(rollOutcomes));
             //System.out.println("NUMBER OF DICE TO BE REROLLED: " + numReroll);
 
 
             // Remove ALL SKULLS from list
-            Collections.sort(rollOutcomes);
+//            Collections.sort(rollOutcomes);
             //System.out.println("SORTED LIST: "+ rollOutcomes);
-            skullCount = Score.numOfSkulls(rollOutcomes);
-            for (int i = 0; i < skullCount; i++){
-                int index = rollOutcomes.size() - 1;
-                rollOutcomes.remove(index);
-            }
+//            skullCount = Score.numOfSkulls(rollOutcomes);
+//            for (int i = 0; i < skullCount; i++){
+//                int index = rollOutcomes.size() - 1;
+//                rollOutcomes.remove(index);
+//            }
             //System.out.println("Removed Skulls: " + rollOutcomes);
 
             //Remove re-rolled dice randomly
-            Collections.shuffle(rollOutcomes);
-            for (int i = 0; i < numReroll; i++){
-                rollOutcomes.remove(0);
-            }
-            remainingDice = rollOutcomes;
+//            Collections.shuffle(rollOutcomes);
+//            for (int i = 0; i < numReroll; i++){
+//                rollOutcomes.remove(0);
+//            }
+//            remainingDice = rollOutcomes;
+
             //System.out.println("Remove Rerolls: " + rollOutcomes);
 
 
@@ -85,7 +97,7 @@ public class Turn {
 
         }
 
-        return score;
+
     }
 
 }
