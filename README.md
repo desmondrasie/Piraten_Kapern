@@ -40,4 +40,3 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | x   | F05 | Return score for a single turn | D | 01/26/23 | 01/26/23 |
 | x   | F06 | Return outcome for a single game | D | 01/26/23 | 01/26/23 |
 | x   | F07 | Return final Win % per Player | D | 01/26/23 | 01/26/23 |
-

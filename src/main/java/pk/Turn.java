@@ -20,18 +20,18 @@ public class Turn {
             ArrayList<Faces> rollOutcomes = new ArrayList<Faces>();
 
             rollOutcomes = Dice.rollAll(numReroll,skullCount,remainingDice);
-            //System.out.println(rollOutcomes);
+            logger.trace(rollOutcomes);
 
             int roundScore = Score.roundScore(rollOutcomes);
 
             if(roundScore == -1){
-                //System.out.println("You Rolled 3 Skulls! Your Turn Ends With 0 pts. ");
+                logger.trace("You Rolled 3 Skulls! Your Turn Ends With 0 pts.");
                 return 0;
             }
             else{
-                //System.out.println("Round Score: "+roundScore);
-                totalPoints = totalPoints + roundScore;
-                //System.out.println("Total Points: "+totalPoints);
+                logger.trace("You Survived This Round!" );
+                totalPoints += roundScore;
+                logger.trace("Total Points: "+totalPoints);
 
             }
 
@@ -40,19 +40,20 @@ public class Turn {
             int toss = coinToss.nextInt(2);
             if (toss == 0){
                 flag = false;
-                //logger.trace("Player is done with their turn!");
+                logger.trace("Player is done with their turn!");
 
                 return totalPoints;
             }
             else{
                 flag = true;
-                //System.out.println("Player wants to roll again!");
+                logger.trace("Player wants to roll again!");
             }
 
             // Determine how many dice player wants to re-roll
             Random diceReroll = new Random();
             numReroll = diceReroll.nextInt(2, 8-Score.numOfSkulls(rollOutcomes));
             //System.out.println("NUMBER OF DICE TO BE REROLLED: " + numReroll);
+
 
             // Remove ALL SKULLS from list
             Collections.sort(rollOutcomes);

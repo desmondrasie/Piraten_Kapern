@@ -1,5 +1,4 @@
 package pk;
-import java.util.Arrays;
 import java.util.ArrayList;
 
 public class Score {
@@ -34,7 +33,7 @@ public class Score {
                 }
             }
         }
-
+        roundTotal += xOfAKindScore(diceOutcome);
         return roundTotal;
     }
 
@@ -47,7 +46,31 @@ public class Score {
         }
         return count;
     }
+    public static int xOfAKindScore(int[] diceOutcome){
+        int points = 0;
 
+        for(int i = 0; i < diceOutcome.length-1; i++){
+            if(diceOutcome[i] == 3){
+                points += 100;
+            }
+            else if(diceOutcome[i] == 4){
+                points += 200;
+            }
+            else if(diceOutcome[i] == 5){
+                points += 500;
+            }
+            else if(diceOutcome[i] == 6){
+                points += 1000;
+            }
+            else if(diceOutcome[i] == 7){
+                points += 2000;
+            }
+            else if(diceOutcome[i] == 8){
+                points += 4000;
+            }
+        }
+        return points;
+    }
 }
 
 

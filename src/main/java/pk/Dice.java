@@ -14,13 +14,13 @@ public class Dice {
         return Faces.values()[bag.nextInt(howManyFaces)];
     }
 
-    public static ArrayList<Faces> rollEight() {
-        ArrayList<Faces> rollOutcomes = new ArrayList<Faces>();
-        for (int i = 0; i < 8; i++){
-            rollOutcomes.add(roll());
-        }
-        return rollOutcomes;
-    }
+//    public static ArrayList<Faces> rollEight() {
+//        ArrayList<Faces> rollOutcomes = new ArrayList<Faces>();
+//        for (int i = 0; i < 8; i++){
+//            rollOutcomes.add(roll());
+//        }
+//        return rollOutcomes;
+//    }
 
     public static ArrayList<Faces> rollAll(int numOfDice, int skullCount,ArrayList<Faces> remainingDice){
         ArrayList<Faces> rollOutcomes = new ArrayList<Faces>();
