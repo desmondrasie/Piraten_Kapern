@@ -42,4 +42,4 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | x   | F07 | Return final Win % per Player | D | 01/26/23 | 01/26/23 |
 | o   | F08 | Return score for a single game; including combo scoring | D | 01/26/23 | 01/26/23 |
 | o   | F09 | Return score for a single game; maximizing combos strategy | D | 01/27/23 | 01/27/23 |
-| o   | F09 | Allow player to select strategy | P |  |  |
+| o   | F10 | Allow player to select strategy via command line | S | 01/27/23 | 01/27/23 |
