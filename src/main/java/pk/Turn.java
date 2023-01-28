@@ -2,6 +2,7 @@ package pk;
 import java.util.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import java.util.Collections;
 
 public class Turn {
     private static final Logger logger = LogManager.getLogger(Turn.class);
@@ -48,6 +49,10 @@ public class Turn {
                 flag = true;
                 logger.trace("Player wants to roll again!");
             }
+
+//            int[] quantityOutcome = Score.quantityOutcome(rollOutcomes);
+//
+//            int max = Collections.max(quantityOutcome);
 
             // Determine how many dice player wants to re-roll
             Random diceReroll = new Random();

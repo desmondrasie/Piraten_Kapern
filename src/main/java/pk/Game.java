@@ -10,7 +10,7 @@ public class Game {
 
         while (player1.gamePoints < 6000 | player2.gamePoints < 6000){
             player1.gamePoints =  player1.gamePoints + Turn.score();
-            //System.out.println("Player 1 Points: "+p1Points);
+            logger.trace("Player 1 Points: "+player1.gamePoints);
             if (player1.gamePoints >= 6000){
                 logger.trace("Player 1 Wins!");
                 return 1;
