@@ -28,4 +28,5 @@
 
 ### 01/28/2023:
 - Completed Step #4 by finishing both random and max-combo strategies; released step4 on Github
+- Completed Step #5 by delivering the Sea Battle Fortune Card strategy; released step5 on Github
 

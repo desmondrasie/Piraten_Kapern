@@ -55,16 +55,14 @@ public class Strategies {
         return keepFaces; // ex. [GOLD, GOLD, GOLD] || [MONKEY, MONKEY, MONKEY, MONKEY]
         }
 
-
-    public static ArrayList<Faces> seaBattle(ArrayList<Faces> rollOutcomes){
+    public static ArrayList<Faces> seaBattle(ArrayList<Faces> rollOutcomes, String card, int numOfSabres, int bonusPoints){
         ArrayList<Faces> keepFaces = new ArrayList<>();
-
 
         for(Faces value: rollOutcomes){
             if(value == Faces.SABER){
                 keepFaces.add(value);
             }
         }
-        return rollOutcomes;
+        return keepFaces;
     }
 }

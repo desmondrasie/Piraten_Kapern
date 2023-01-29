@@ -43,3 +43,5 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | o   | F08 | Return score for a single game; including combo scoring | D | 01/26/23 | 01/26/23 |
 | o   | F09 | Return score for a single game; maximizing combos strategy | D | 01/27/23 | 01/28/23 |
 | o   | F10 | Allow player to select strategy via command line | D | 01/28/23 | 01/28/23 |
+| o   | F11 | Show player what fortune card was selected | D | 01/28/23 | 01/28/23 |
+| o   | F12 | Return score for simulation, with Sea Battles strategy included | D | 01/28/23 | 01/28/23|

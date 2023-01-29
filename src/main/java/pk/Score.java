@@ -3,11 +3,25 @@ import java.util.ArrayList;
 
 public class Score {
 
-    public static int roundScore(ArrayList<Faces> rollOutcomes) {
+    public static int roundScore(ArrayList<Faces> rollOutcomes, String card) {
         int roundTotal = 0;
         int[] quantityTracker = quantityOutcome(rollOutcomes);
 
-        if(quantityTracker[5] >= 3) return -1; //Check for 3 SKULLS
+        //Checks for 3 skulls. If a Sea Battle is taking place, player loses points, else 0 points.
+        if (quantityTracker[5] >= 3){
+            if(card.equals("SB2")){
+                return -2;//Check for
+            }
+            else if(card.equals("SB3")){
+                return -3;
+            }
+            else if(card.equals("SB4")){
+                return -4;
+            }
+            else{
+                return -1;
+            }
+        }
         roundTotal = (quantityTracker[0] + quantityTracker[1])*100; //Accounts for single DIAMOND & GOLD
 
         roundTotal += xOfAKindScore(quantityTracker);
