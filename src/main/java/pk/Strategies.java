@@ -6,26 +6,28 @@ import java.util.Random;
 public class Strategies {
 
     public static ArrayList<Faces> random(ArrayList<Faces> rollOutcomes){
+        ArrayList<Faces> keepFaces = new ArrayList<>();
+        keepFaces = (ArrayList)rollOutcomes.clone();
         int skullCount = 0;
         int index = 0;
         int numReroll = 0;
 
-        skullCount = Score.numOfSkulls(rollOutcomes);
-        Collections.sort(rollOutcomes);
+        skullCount = Score.numOfSkulls(keepFaces);
+        Collections.sort(keepFaces);
 
         for(int i = 0; i < skullCount; i++){
-            index = rollOutcomes.size() - 1;
-            rollOutcomes.remove(index);
+            index = keepFaces.size() - 1;
+            keepFaces.remove(index);
         }
 
-        Collections.shuffle(rollOutcomes);
+        Collections.shuffle(keepFaces);
         Random diceReroll = new Random();
         numReroll = diceReroll.nextInt(2, 8-skullCount);
 
         for (int i = 0; i < numReroll; i++) {
-            rollOutcomes.remove(0);
+            keepFaces.remove(0);
         }
-        return rollOutcomes;
+        return keepFaces;
     }
 
 

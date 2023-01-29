@@ -6,55 +6,55 @@ import java.util.Collections;
 
 public class Turn {
     private static final Logger logger = LogManager.getLogger(Turn.class);
-    public static int score(){
-
+    public static int score(String mode){
 
         int numReroll = 8;
         int skullCount = 0;
         int totalPoints = 0;
+
         ArrayList<Faces> remainingDice = new ArrayList<Faces>();
 
         while(true){
-
-            //System.out.println("Player Rolls: ");
             ArrayList<Faces> rollOutcomes = new ArrayList<Faces>();
-
             rollOutcomes = Dice.rollAll(numReroll,skullCount,remainingDice);
             Collections.sort(rollOutcomes);
-            logger.trace(rollOutcomes);
+            logger.trace("Player Rolled: "+rollOutcomes);
 
             int roundScore = Score.roundScore(rollOutcomes);
 
             if(roundScore == -1){
-                logger.trace("You Rolled 3 Skulls! Your Turn Ends With 0 pts.");
+                logger.trace("3 Skulls! Your Turn Ends With 0 pts.");
                 return 0;
-            }
-            else{
-                logger.trace("You Survived This Round!" );
+            } else{
                 totalPoints += roundScore;
-                logger.trace("Total Points: "+totalPoints);
+                logger.trace("Total Points For Turn: "+totalPoints);
 
             }
 
-            // Check if player wants to re-roll
-            Random coinToss = new Random();
-            int toss = coinToss.nextInt(2);
-            if (toss == 0){
-                logger.trace("Player is done with their turn!");
-                return totalPoints;
-            }
-            else{
-                logger.trace("Player wants to roll again!");
+            // STRATEGIES
+            if(mode.equals("combo")){
+                if (totalPoints >= 1000) {
+                    return totalPoints;
+                }
+                remainingDice = Strategies.maxCombos(rollOutcomes);
             }
 
-            //remainingDice = Strategies.maxCombos(rollOutcomes);
-            remainingDice = Strategies.random(rollOutcomes);
-            logger.trace("Remaining Dice: "+remainingDice);
+            else if (mode.equals("random")){
+                Random coinToss = new Random();
+                int toss = coinToss.nextInt(2);
+                if (toss == 0){
+                    logger.trace("Player is done with their turn!");
+                    return totalPoints;
+                }
+                else{
+                    logger.trace("Player wants to roll again!");
+                }
+                remainingDice = Strategies.random(rollOutcomes);
+
+            }
+
             skullCount = Score.numOfSkulls(rollOutcomes);
             numReroll = 8 - remainingDice.size() - skullCount;
-
-
-
 
             if (numReroll < 2){
                 logger.trace("Player is done with their turn! *No more rerolls*! ");
