@@ -30,13 +30,13 @@ public class Turn {
                 logger.trace("3 Skulls! Your Turn Ends With 0 pts.");
                 return 0;
             } else{
-                totalPoints += roundScore;
+                totalPoints = roundScore;
                 logger.trace("Total Points For Turn: "+totalPoints);
 
             }
 
             // STRATEGIES
-            if(true){
+            if(false){
                 //run seaBattle strat
             }
             else if(mode.equals("combo")){
