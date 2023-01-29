@@ -6,6 +6,10 @@ import java.util.Collections;
 
 public class Turn {
     private static final Logger logger = LogManager.getLogger(Turn.class);
+
+//    Collections.shuffle(FortuneCards.allCards);
+//    String card = FortuneCards.allCards[];
+
     public static int score(String mode){
 
         int numReroll = 8;
@@ -32,7 +36,10 @@ public class Turn {
             }
 
             // STRATEGIES
-            if(mode.equals("combo")){
+            if(true){
+                //run seaBattle strat
+            }
+            else if(mode.equals("combo")){
                 if (totalPoints >= 1000) {
                     return totalPoints;
                 }
