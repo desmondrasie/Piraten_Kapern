@@ -24,6 +24,11 @@ public class Score {
         }
         roundTotal = (quantityTracker[0] + quantityTracker[1])*100; //Accounts for single DIAMOND & GOLD
 
+        if (card.equals("MB")){
+            quantityTracker[2] += quantityTracker[3];
+            quantityTracker[3] = 0;
+        }
+
         roundTotal += xOfAKindScore(quantityTracker);
         return roundTotal;
     }

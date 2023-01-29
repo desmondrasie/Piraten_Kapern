@@ -45,3 +45,4 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | o   | F10 | Allow player to select strategy via command line | D | 01/28/23 | 01/28/23 |
 | o   | F11 | Show player what fortune card was selected | D | 01/28/23 | 01/28/23 |
 | o   | F12 | Return score for simulation, with Sea Battles strategy included | D | 01/28/23 | 01/28/23|
+| o   | F13 | Return score for simulation, with Monkey Business strategy included | D | 01/29/23 | 01/29/23 |

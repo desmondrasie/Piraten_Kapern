@@ -19,6 +19,7 @@ public class PiratenKarpen {
         for(int i = 0; i < 42; i++){
             System.out.println();
             System.out.println("***** NEW GAME *****");
+            System.out.println();
             if(Game.winner(args).equals("P1")){
                 player1.numOfWins++;
             }

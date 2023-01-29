@@ -30,3 +30,7 @@
 - Completed Step #4 by finishing both random and max-combo strategies; released step4 on Github
 - Completed Step #5 by delivering the Sea Battle Fortune Card strategy; released step5 on Github
 
+### 01/29/2023:
+- Finished Feature backlog completely 
+- Completed Step #6 by delivering the Monkey Business Fortune Card strategy; released step6 on Github
+- Finishing additions to the project, release final version

@@ -16,10 +16,11 @@ public class Game {
         deck = (ArrayList)FortuneCards.allCards.clone();
 
 
-        while (player1.gamePoints < 10000 | player2.gamePoints < 10000){
+        while (player1.gamePoints < 6000 | player2.gamePoints < 6000){
             if(deck.size()==0){
                 deck = (ArrayList)FortuneCards.allCards.clone();
             }
+            logger.trace(deck);
             Collections.shuffle(deck);
             System.out.println("YOUR TURN: ~ Player 1 ~");
             player1.gamePoints =  player1.gamePoints + Turn.score(player1.mode,deck);
@@ -30,6 +31,10 @@ public class Game {
 //                System.out.println("FORTUNECARDS.ALLCARDS OUTPUT"+FortuneCards.allCards);
                 return "P1";
             }
+            if(deck.size()==0){
+                deck = (ArrayList) FortuneCards.allCards.clone();
+            }
+            logger.trace(deck);
             System.out.println("YOUR TURN: ~ Player 2 ~");
             player2.gamePoints = player2.gamePoints + Turn.score(player2.mode,deck);
             logger.trace("Player 2 Total Points: "+player2.gamePoints);

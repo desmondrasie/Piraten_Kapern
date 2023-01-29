@@ -55,11 +55,21 @@ public class Strategies {
         return keepFaces; // ex. [GOLD, GOLD, GOLD] || [MONKEY, MONKEY, MONKEY, MONKEY]
         }
 
-    public static ArrayList<Faces> seaBattle(ArrayList<Faces> rollOutcomes, String card, int numOfSabres, int bonusPoints){
+    public static ArrayList<Faces> seaBattle(ArrayList<Faces> rollOutcomes){
         ArrayList<Faces> keepFaces = new ArrayList<>();
 
         for(Faces value: rollOutcomes){
             if(value == Faces.SABER){
+                keepFaces.add(value);
+            }
+        }
+        return keepFaces;
+    }
+    public static ArrayList<Faces>  monkeyBusiness(ArrayList<Faces> rollOutcomes){
+        ArrayList<Faces> keepFaces = new ArrayList<>();
+
+        for(Faces value: rollOutcomes){
+            if (value == Faces.MONKEY | value == Faces.PARROT){
                 keepFaces.add(value);
             }
         }

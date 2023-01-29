@@ -1,5 +1,6 @@
 package pk;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -15,6 +16,9 @@ public class Turn {
         String card = deck.get(0);
         System.out.println(("Player Draws This Card For The Round: "+FortuneCards.mapCard(card)));
         deck.remove(0);
+        if(deck.size() == 0){
+            deck = refill;
+        }
 
         int numReroll = 8;
         int skullCount = 0;
@@ -59,7 +63,7 @@ public class Turn {
                     logger.trace("Won Sea Battle! +"+bonusPoints+" Bonus points");
                     return basePoints + bonusPoints;
                 }
-                remainingDice = Strategies.seaBattle(rollOutcomes,card,numOfSabres,bonusPoints);
+                remainingDice = Strategies.seaBattle(rollOutcomes);
 
             }
             else if(card.equals("SB3")){
@@ -69,7 +73,7 @@ public class Turn {
                     logger.trace("Won Sea Battle! +"+bonusPoints+" Bonus points");
                     return basePoints + bonusPoints;
                 }
-                remainingDice = Strategies.seaBattle(rollOutcomes, card, numOfSabres, bonusPoints);
+                remainingDice = Strategies.seaBattle(rollOutcomes);
             }
             else if(card.equals("SB4")){
                 int numOfSabres = 4;
@@ -78,9 +82,26 @@ public class Turn {
                     logger.trace("Won Sea Battle! +"+bonusPoints+" Bonus points");
                     return basePoints + bonusPoints;
                 }
-                remainingDice = Strategies.seaBattle(rollOutcomes,card,numOfSabres,bonusPoints);
+                remainingDice = Strategies.seaBattle(rollOutcomes);
             }
-
+            else if(card.equals("MB")) {
+                if (basePoints >= 1000) {
+                    return basePoints;
+                }
+                int[] quantities = Score.quantityOutcome(rollOutcomes);
+                int maxValue = 0;
+                for (int i = 0; i < quantities.length; i++) {
+                    if (quantities[i] > maxValue) {
+                        maxValue = quantities[i];
+                    }
+                }
+                if ((quantities[2] + quantities[3]) > maxValue) {
+                    remainingDice = Strategies.monkeyBusiness(rollOutcomes);
+                }
+                else{
+                    remainingDice = Strategies.maxCombos(rollOutcomes);
+                }
+            }
             // COMBO & RANDOM STRATEGIES
             else if(mode.equals("combo")){
                 if (basePoints >= 1000) {
@@ -110,40 +131,6 @@ public class Turn {
                 logger.trace("Player is done with their turn! *No more rerolls*! ");
                 return basePoints;
             }
-
-
-
-
-
-            // Determine how many dice player wants to re-roll
-//            Random diceReroll = new Random();
-//            numReroll = diceReroll.nextInt(2, 8-Score.numOfSkulls(rollOutcomes));
-            //System.out.println("NUMBER OF DICE TO BE REROLLED: " + numReroll);
-
-
-            // Remove ALL SKULLS from list
-//            Collections.sort(rollOutcomes);
-            //System.out.println("SORTED LIST: "+ rollOutcomes);
-//            skullCount = Score.numOfSkulls(rollOutcomes);
-//            for (int i = 0; i < skullCount; i++){
-//                int index = rollOutcomes.size() - 1;
-//                rollOutcomes.remove(index);
-//            }
-            //System.out.println("Removed Skulls: " + rollOutcomes);
-
-            //Remove re-rolled dice randomly
-//            Collections.shuffle(rollOutcomes);
-//            for (int i = 0; i < numReroll; i++){
-//                rollOutcomes.remove(0);
-//            }
-//            remainingDice = rollOutcomes;
-
-            //System.out.println("Remove Rerolls: " + rollOutcomes);
-
-
-//            System.out.println("\n");
-//            System.out.println("----- END OF ROUND -----");
-//            System.out.println("\n");
 
         }
 
