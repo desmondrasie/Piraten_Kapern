@@ -30,7 +30,7 @@ public class Turn {
             ArrayList<Faces> rollOutcomes = new ArrayList<Faces>();
             rollOutcomes = Dice.rollAll(numReroll,skullCount,remainingDice);
             Collections.sort(rollOutcomes);
-            logger.trace("Player Rolled: "+rollOutcomes);
+            System.out.println("Player Rolled: "+rollOutcomes);
 
             int roundScore = Score.roundScore(rollOutcomes,card);
 
@@ -47,7 +47,7 @@ public class Turn {
                 return -500;
             }
             else if(roundScore == -4) {
-                logger.trace("Lost Sea Battle! -500 points");
+                logger.trace("Lost Sea Battle! -1000 points");
                 return -1000;
             }
 
@@ -105,8 +105,10 @@ public class Turn {
             // COMBO & RANDOM STRATEGIES
             else if(mode.equals("combo")){
                 if (basePoints >= 1000) {
+                    logger.trace("Player is done with their turn!");
                     return basePoints;
                 }
+                logger.trace("Player wants to roll again!");
                 remainingDice = Strategies.maxCombos(rollOutcomes);
             }
 
@@ -123,7 +125,6 @@ public class Turn {
                 remainingDice = Strategies.random(rollOutcomes);
 
             }
-
             skullCount = Score.numOfSkulls(rollOutcomes);
             numReroll = 8 - remainingDice.size() - skullCount;
 
