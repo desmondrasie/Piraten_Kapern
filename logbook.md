@@ -33,4 +33,5 @@
 ### 01/29/2023:
 - Finished Feature backlog completely 
 - Completed Step #6 by delivering the Monkey Business Fortune Card strategy; released step6 on Github
-- Finishing additions to the project, release final version
+- Finish minor print/logging statements for better readability
+- Finish updating final version of the report pdf

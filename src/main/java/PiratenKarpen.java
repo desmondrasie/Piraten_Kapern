@@ -15,7 +15,6 @@ public class PiratenKarpen {
         double p1WinPercent;
         double p2WinPercent;
         System.out.println("Welcome to Piraten Karpen Simulator!");
-
         for(int i = 0; i < 42; i++){
             System.out.println();
             System.out.println("***** NEW GAME *****");
@@ -27,8 +26,8 @@ public class PiratenKarpen {
 
         p1WinPercent = player1.numOfWins/42.0;
         p2WinPercent = 1-p1WinPercent;
-        logger.trace("Player 1 | Win% = "+Math.round(p1WinPercent*10000)/100.0+"%");
-        logger.trace("Player 2 | Win% = "+Math.round(p2WinPercent*10000)/100.0+"%");
+        System.out.println("Player 1 | Win% = "+Math.round(p1WinPercent*10000)/100.0+"%");
+        System.out.println("Player 2 | Win% = "+Math.round(p2WinPercent*10000)/100.0+"%");
 
     }
 }
